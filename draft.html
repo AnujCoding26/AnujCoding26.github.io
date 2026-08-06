@@ -1,111 +1,220 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Top 15 Best Video Games</title>
 
 <style>
-    body {
-        background: rgb(75, 240, 252);
-        font-family: Arial, sans-serif;
-        color: rgb(75, 240, 252);
-        margin: 0;
-        padding: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#4bf0fc;
+    color:#111;
+}
+
+header{
+    background:linear-gradient(90deg,#ff0000,#6600ff);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+#searchBox{
+    display:block;
+    width:70%;
+    max-width:600px;
+    margin:25px auto;
+    padding:12px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+}
+
+.game-list{
+    width:85%;
+    margin:auto;
+    list-style:none;
+    padding-bottom:40px;
+}
+
+.game-item{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:12px;
+    border-left:6px solid red;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.game-item:hover{
+    transform:scale(1.02);
+    border-left-color:#6600ff;
+    background:#f3f3f3;
+}
+
+.game-item img{
+    width:120px;
+    height:160px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.game-info{
+    flex:1;
+}
+
+.game-info h2{
+    margin-bottom:10px;
+}
+
+.details{
+    display:none;
+    margin-top:10px;
+    padding:10px;
+    background:#222;
+    color:white;
+    border-radius:8px;
+}
+
+.details a{
+    color:#4bf0fc;
+}
+
+@media(max-width:700px){
+    .game-item{
+        flex-direction:column;
+        text-align:center;
     }
 
-    header {
-        text-align: center;
-        padding: 30px;
-        background: linear-gradient(90deg, #ff0000, #6600ff);
+    .game-item img{
+        margin:auto;
     }
-
-    header h1 {
-        margin: 0;
-        font-size: 40px;
-        letter-spacing: 2px;
-    }
-
-    #searchBox {
-        width: 60%;
-        padding: 12px;
-        margin: 20px auto;
-        display: block;
-        border-radius: 8px;
-        border: none;
-        font-size: 18px;
-    }
-
-    .game-list {
-        width: 80%;
-        margin: auto;
-        padding: 0;
-        list-style: none;
-    }
-
-    .game-item {
-        background: (255, 255, 0);
-        margin: 15px 0;
-        padding: 20px;
-        border-radius: 10px;
-        transition: 0.3s;
-        cursor: pointer;
-        border-left: 5px solid #ff0000;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .game-item:hover {
-        transform: scale(1.03);
-        background: #262626;
-        border-left: 5px solid #6600ff;
-    }
-
-    .game-item img {
-        width: 120px;
-        height: 160px;
-        border-radius: 8px;
-        object-fit: cover;
-    }
-
-    .game-item h2 {
-        margin: 0;
-        font-size: 24px;
-    }
-
-    .details {
-        margin-top: 10px;
-        padding: 10px;
-        background: #111;
-        border-radius: 8px;
-        display: none;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .details a {
-        color: #00aaff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .details a:hover {
-        text-decoration: underline;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
+}
 </style>
+</head>
+
+<body>
+
+<header>
+<h1>🎮 Top 15 Best Video Games</h1>
+</header>
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search for a game..."
+onkeyup="filterGames()">
+
+<ul class="game-list">
+
+<li class="game-item" onclick="toggleDetails(this)">
+<img src="https://via.placeholder.com/120x160?text=Minecraft" alt="Minecraft">
+<div class="game-info">
+<h2>1. Minecraft</h2>
+<div class="details">
+<p>The best-selling game ever made with endless creativity and survival gameplay.</p>
+<p><a href="https://www.minecraft.net/" target="_blank">Official Website</a></p>
+</div>
+</div>
+</li>
+
+<li class="game-item" onclick="toggleDetails(this)">
+<img src="https://via.placeholder.com/120x160?text=GTA+V" alt="GTA V">
+<div class="game-info">
+<h2>2. Grand Theft Auto V</h2>
+<div class="details">
+<p>One of the most successful open-world games ever created.</p>
+<p><a href="https://www.rockstargames.com/gta-v" target="_blank">Official Website</a></p>
+</div>
+</div>
+</li>
+
+<li class="game-item" onclick="toggleDetails(this)">
+<img src="https://via.placeholder.com/120x160?text=Fortnite" alt="Fortnite">
+<div class="game-info">
+<h2>3. Fortnite</h2>
+<div class="details">
+<p>A hugely popular battle royale game with frequent live events.</p>
+<p><a href="https://www.fortnite.com/" target="_blank">Official Website</a></p>
+</div>
+</div>
+</li>
+
+<li class="game-item" onclick="toggleDetails(this)">
+<img src="https://via.placeholder.com/120x160?text=Zelda" alt="Zelda">
+<div class="game-info">
+<h2>4. Zelda: Breath of the Wild</h2>
+<div class="details">
+<p>An award-winning adventure game for the Nintendo Switch.</p>
+</div>
+</div>
+</li>
+
+<li class="game-item" onclick="toggleDetails(this)">
+<img src="https://via.placeholder.com/120x160?text=Elden+Ring" alt="Elden Ring">
+<div class="game-info">
+<h2>5. Elden Ring</h2>
+<div class="details">
+<p>An open-world action RPG from FromSoftware.</p>
+</div>
+</div>
+</li>
+
+<li class="game-item"><div class="game-info"><h2>6. Red Dead Redemption 2</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>7. The Witcher 3</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>8. God of War Ragnarök</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>9. Halo 3</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>10. Super Mario Odyssey</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>11. Terraria</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>12. Cyberpunk 2077</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>13. Call of Duty: Black Ops II</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>14. Portal 2</h2></div></li>
+<li class="game-item"><div class="game-info"><h2>15. Skyrim</h2></div></li>
+
+</ul>
 
 <script>
 function filterGames() {
     let input = document.getElementById("searchBox").value.toLowerCase();
     let items = document.getElementsByClassName("game-item");
 
-    for (let i =
-        
-        </body>
-        </html>
-         
+    for (let i = 0; i < items.length; i++) {
+        let text = items[i].innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            items[i].style.display = "flex";
+        } else {
+            items[i].style.display = "none";
+        }
+    }
+}
+
+function toggleDetails(item) {
+    let details = item.querySelector(".details");
+
+    if (!details) return;
+
+    if (details.style.display === "block") {
+        details.style.display = "none";
+    } else {
+        details.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
