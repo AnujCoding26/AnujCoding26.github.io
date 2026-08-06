@@ -1,50 +1,106 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Top 15 Best Video Games</title>
 
-<meta
-  name="viewport"
-content="width=device=width, initial-scale=1"
-  >
-  <title>Rating  The Best Video Games of all Time!</title>
-
-  <style>
-
-  body {
-    Background-color; royalblue:
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #0d0d0d;
+        color: #fff;
+        margin: 0;
+        padding: 0;
     }
 
-    . centered-list {
-      width: fit-content;
-      margin: 0 auto;
-      test-align: left;
+    header {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(90deg, #ff0000, #6600ff);
     }
 
-    .test {
-      color: rgb(00 23 66);
-
-
+    header h1 {
+        margin: 0;
+        font-size: 40px;
+        letter-spacing: 2px;
     }
 
-  
-  </style>
-</head>
-<body>
-<h1>Welcolme to The VIDEO GAME RATING SIMULATOR!</h1>
-<p>These are some of the most popular Video Games of all time!</p>
-<h2>Here are some Famous Well known Video Games.</h2>  
-  <ol>
-<li>Mario Kart 8 deluxe</li>
-<li>Microsoft Flight sim</li>
-<li>Gta 5</li>   
-<li>Wii Sports</li>
-<li>Tetris</li>
-<li>Mincraft</li> 
-  </ol>
+    #searchBox {
+        width: 60%;
+        padding: 12px;
+        margin: 20px auto;
+        display: block;
+        border-radius: 8px;
+        border: none;
+        font-size: 18px;
+    }
 
-    
-  
-</body>
-  
-</html>
+    .game-list {
+        width: 80%;
+        margin: auto;
+        padding: 0;
+        list-style: none;
+    }
+
+    .game-item {
+        background: #1a1a1a;
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 10px;
+        transition: 0.3s;
+        cursor: pointer;
+        border-left: 5px solid #ff0000;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .game-item:hover {
+        transform: scale(1.03);
+        background: #262626;
+        border-left: 5px solid #6600ff;
+    }
+
+    .game-item img {
+        width: 120px;
+        height: 160px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .game-item h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .details {
+        margin-top: 10px;
+        padding: 10px;
+        background: #111;
+        border-radius: 8px;
+        display: none;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .details a {
+        color: #00aaff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .details a:hover {
+        text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+</style>
+
+<script>
+function filterGames() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let items = document.getElementsByClassName("game-item");
+
+    for (let i =
